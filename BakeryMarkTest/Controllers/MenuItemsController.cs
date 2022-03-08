@@ -24,7 +24,7 @@ namespace BakeryMarkTest.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.products = await _context.MenuItem.ToListAsync();
-            return View(await _context.MenuItem.ToListAsync());
+            return View(ViewBag.products);
         }
 
         // GET: SearchForMenuItem
@@ -36,7 +36,8 @@ namespace BakeryMarkTest.Controllers
         // POST: ShowSearchResult
         public async Task<IActionResult> ShowSearchResult(string SearchItem)
         {
-            return View("Index", await _context.MenuItem.Where( j => j.Name.Contains(SearchItem)).ToListAsync());
+            ViewBag.products = await _context.MenuItem.Where(j => j.Name.Contains(SearchItem)).ToListAsync();
+            return View("Index", ViewBag.products);
         }
 
         // GET: MenuItems/Details/5

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BakeryMarkTest.Data;
 using BakeryMarkTest.Models;
 using Microsoft.AspNetCore.Authorization;
+//using BakeryMarkTest.ViewModels;
 
 namespace BakeryMarkTest.Controllers
 {
@@ -23,6 +24,7 @@ namespace BakeryMarkTest.Controllers
         // GET: MenuItems
         public async Task<IActionResult> Index()
         {
+            ViewBag.products = await _context.MenuItem.ToListAsync();
             return View(await _context.MenuItem.ToListAsync());
         }
 

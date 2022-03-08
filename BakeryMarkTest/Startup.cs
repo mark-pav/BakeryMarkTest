@@ -34,6 +34,8 @@ namespace BakeryMarkTest
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            //services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +61,8 @@ namespace BakeryMarkTest
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
+            //app.UseMvc();
 
             app.UseEndpoints(endpoints =>
             {

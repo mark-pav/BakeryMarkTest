@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using BakeryMarkTest.Data;
 using BakeryMarkTest.Models;
 using Microsoft.AspNetCore.Authorization;
-//using BakeryMarkTest.ViewModels;
 
 namespace BakeryMarkTest.Controllers
 {
@@ -26,6 +25,18 @@ namespace BakeryMarkTest.Controllers
         {
             ViewBag.products = await _context.MenuItem.ToListAsync();
             return View(await _context.MenuItem.ToListAsync());
+        }
+
+        // GET: SearchForMenuItem
+        public async Task<IActionResult> SearchForMenuItem()
+        {
+            return View();
+        }
+
+        // POST: ShowSearchResult
+        public async Task<IActionResult> ShowSearchResult(string SearchItem)
+        {
+            return View("Index", await _context.MenuItem.Where( j => j.Name.Contains(SearchItem)).ToListAsync());
         }
 
         // GET: MenuItems/Details/5
@@ -47,7 +58,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Create
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();

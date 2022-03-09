@@ -8,8 +8,6 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    
-   
 }
 
 /* Provide sufficient contrast against white background 
@@ -79,9 +77,8 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    font-family: Arial, Helvetica, sans-serif, bold;
-    font-size: 20px;
-    margin-top: 80px;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 18px;
     margin-bottom: 60px;
     background-image: url(Images/linear-brown-white-gradient-1920x1080-c2-f4a460-f5f5dc-a-240-f-14.jpg);
     background-position: center;
@@ -135,11 +132,14 @@ body {
     background-size: cover;
 }
 
-header {
-    background-color:burlywood;
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    height: 70px;
+.pageBanner, pageBannerWrapper, pageBannerImage {
+    position: absolute;
+    left: 0px;
+    margin-left: 0px;
+    top: 0px;
+    min-width: 100%;
+    min-height: 355px;
+    overflow: hidden;
+    width: 100%;
+    z-index: 801;
 }

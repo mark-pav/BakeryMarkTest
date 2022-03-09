@@ -1,5 +1,3 @@
-using System;
-
 namespace BakeryMarkTest.Models
 {
     public class ErrorViewModel

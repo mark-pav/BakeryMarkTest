@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BakeryMarkTest.Data;
 using BakeryMarkTest.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BakeryMarkTest.Controllers
 {
@@ -22,7 +23,21 @@ namespace BakeryMarkTest.Controllers
         // GET: MenuItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MenuItem.ToListAsync());
+            ViewBag.products = await _context.MenuItem.ToListAsync();
+            return View(ViewBag.products);
+        }
+
+        // GET: SearchForMenuItem
+        public async Task<IActionResult> SearchForMenuItem()
+        {
+            return View();
+        }
+
+        // POST: ShowSearchResult
+        public async Task<IActionResult> ShowSearchResult(string SearchItem)
+        {
+            ViewBag.products = await _context.MenuItem.Where(j => j.Name.Contains(SearchItem)).ToListAsync();
+            return View("Index", ViewBag.products);
         }
 
         // GET: MenuItems/Details/5
@@ -44,6 +59,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Create
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();
@@ -54,7 +70,7 @@ namespace BakeryMarkTest.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MenuItemId,Name,Description,Price,NumberOfCalories,IsVegan,IsVegeterian")] MenuItem menuItem)
+        public async Task<IActionResult> Create([Bind("MenuItemId,Name,Description,Price,NumberOfCalories,IsVegan,IsVegeterian,ImagePath")] MenuItem menuItem)
         {
             if (ModelState.IsValid)
             {
@@ -66,6 +82,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Edit/5
+        //[Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -86,7 +103,7 @@ namespace BakeryMarkTest.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("MenuItemId,Name,Description,Price,NumberOfCalories,IsVegan,IsVegeterian")] MenuItem menuItem)
+        public async Task<IActionResult> Edit(string id, [Bind("MenuItemId,Name,Description,Price,NumberOfCalories,IsVegan,IsVegeterian,ImagePath")] MenuItem menuItem)
         {
             if (id != menuItem.MenuItemId)
             {

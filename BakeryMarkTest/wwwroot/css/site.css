@@ -3,6 +3,14 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 
+
+
+
+/* Displays div elements in line */
+.form-container {
+    display: inline;
+}
+
 /*This is for the  BRAND LOGO */
 a.navbar-brand {
     white-space: normal;
@@ -142,4 +150,22 @@ body {
     overflow: hidden;
     width: 100%;
     z-index: 801;
+}
+
+
+
+
+
+aside{
+    width: 30%;
+    float: right;
+    padding-left: 30px;
+}
+td,
+th {
+    border: 1px solid #000000;
+    padding: 10px;
+}
+table {
+    border: 2px solid rgb(200, 200, 200);
 }

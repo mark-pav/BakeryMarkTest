@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <title>Cart</title>
+    </head>
+    <body>
+        <h3>Cart Page</h3>
+        <table celllpadding="2" cellspacing="2" bordre="1">
+            <tr>
+                <th>Option</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Photo</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Sub Total</th>
+            </tr>
+        @foreach(var item in ViewBag.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item">Remove</a></td>
+                <td>@item.Product.MenuItemId</td>
+                <td>@item.Product.Name</td>
+                <td><img src="~/Images/@item.Product.ImagePath" width="60"/> </td>
+                <td>@item.Product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(Double.Parse(item.Product.Price) * item.Quantity)</td>
+
+            </tr>
+        }
+            <tr>
+                <td alight="right" colspan="6"><b>Sum</b></td>
+                <td>
+                    @ViewBag.total
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <a asp-controller="menuitems" asp-action="index">Continue Shopping</a>
+        <a asp-controller="checkout" asp-action="index" asp-route-id="">Go to Checkout</a>
+
+    </body>
+
+
+
+
+</html>

@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\css\Images\**" />
+    <Content Remove="wwwroot\css\Images\**" />
+    <EmbeddedResource Remove="wwwroot\css\Images\**" />
+    <None Remove="wwwroot\css\Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\Images\bread.jpg" />
     <None Include="wwwroot\Images\bread2.jpg" />
     <None Include="wwwroot\Images\zucchini_bread2.jpg" />
@@ -18,10 +25,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.21" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\css\Images\" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,6 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
-
-
-
-
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
 
 
 /* Displays div elements in line */
@@ -14,15 +11,17 @@ for details on configuring this project to bundle and minify static web assets. 
 /*This is for the  BRAND LOGO */
 a.navbar-brand {
     white-space: normal;
-    text-align: center;
+    text-align: left;
     word-break: break-all;
+    margin-top: 0px;
+    margin-bottom:0px;
 }
 
 /* Provide sufficient contrast against white background 
    this is for every link background
 */
 a {
-    color: dodgerblue;
+    color: white;
 }
 a:hover{
     color:hotpink;
@@ -45,17 +44,20 @@ a:hover{
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+   
 
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    
 }
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+ 
   }
 }
 
@@ -80,17 +82,29 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
-  font-size: 20px
+  font-size: 20px;
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 body {
     /* Margin bottom by footer height */
     font-family: Arial, Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin-bottom: 60px;
-    background-image: url(Images/linear-brown-white-gradient-1920x1080-c2-f4a460-f5f5dc-a-240-f-14.jpg);
-    background-position: center;
-    background-size: cover;
+    background-color: lightcoral;
+    background-size:cover;
+    font-weight: 500;
 }
 .footer {
   position: absolute;
@@ -100,7 +114,163 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.divSplit{
+
+div {
+    display: block;
+}
+
+
+/*controls the div which holds our image*/
+.ourStory {
+
+    border-radius: 20px;
+    border: 5px dashed white;
+    /* background-image:url(../Images/cakes.jpg);*/
+    background-position: center;
+    position: relative;
+    left: 0px;
+    top: 10px;
+    max-height: 590px;
+    overflow: hidden;
+    margin-bottom: 55px;
+}
+
+/*Controls the our story content table*/
+.osContent {
+    position: absolute;
+    left: 27%;
+    top: 0;
+    margin:0;
+    padding: 30px 40px 0px 30px;
+    width: 490px;
+    height: 590px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: burlywood;
+
+    
+
+}
+
+h2 {
+    font-size: 126px;
+    font-family:  'Palace Script MT', cursive;
+    font-weight:500;
+    line-height: 60px;
+    color: darkgoldenrod;
+    margin-bottom: 5px;
+    
+}
+
+h3 {
+    font-size: 66px;
+    line-height: 70px;
+    color: #614936;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.15em;
+   /* background: url(../images/lines.png) left bottom repeat-x;*/
+    display: inline-block;
+    padding-bottom: 0;
+}
+
+
+
+/*BANNER DIV & BUTTONS*/
+h1,
+p,
+a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato';
+    
+}
+
+h1 {
+    font-size: 2.8em;
+    padding: 10px 0;
+    font-weight: 800;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.banner {
+    box-shadow: 5px 5px 8px #ff0080, 10px 10px 8px #ffffff, 15px 15px 8px dodgerblue;
+    margin: 20px;
+    /*  box-shadow: 20px 20px 50px 10px white inset;*/
+    border-radius: 20px;
+    width: 100%;
+    padding: 60px 0;
+    font-size: 50px;
+    text-align:center;
+   text-shadow: 5px 5px 5px #C71585;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 25px;
+    background-image: url('../Images/mini treats.jpg');
+    background-repeat: no-repeat;
+    /*  background-attachment:fixed;*/
+    background-position: center;
+    /*    height: 200px;
+    width: 1200px;*/
+}
+.banner2 {
+    /*box-shadow: 20px 20px 50px 10px white inset;*/
+    border-radius: 50px;
+    /*border: 3px dotted white;*/
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+    color: white;
+    font-weight: 300;
+    margin-bottom: 10px;
+    /*background-image: url('../Images/mini treats.jpg');
+    background-repeat: no-repeat;*/
+    /*  background-attachment:fixed;*/
+    /*    background-position: center;*/
+    /*    height: 200px;
+    width: 1200px;*/
+}
+
+.btn-bgstroke {
+    font-size: 20px;
+    display: inline-block;
+    border: 3px ridge white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom:0px;
+}
+
+    .btn-bgstroke:hover {
+        background-color: white;
+        color: #33cccc;
+    }
+
+
+
+img #navbar-brand {
+ /*       height: auto;
+    width: auto;*/
+    /* max-height: 72px;*/
+    /*  max-width: 250px;*/
+    padding: 0px 0px 0px 0px;
+    max-width: 10%;
+    max-height: 10%;
+    margin-left: auto;
+    display: block;
+}
+
+
+
+
+/*.divSplit{
     display:inline;
     text-align:center;
     position:center;
@@ -138,19 +308,7 @@ body {
     background: url(Images/macarons-stack.jpg);
     background-position: center;
     background-size: cover;
-}
-
-.pageBanner, pageBannerWrapper, pageBannerImage {
-    position: absolute;
-    left: 0px;
-    margin-left: 0px;
-    top: 0px;
-    min-width: 100%;
-    min-height: 355px;
-    overflow: hidden;
-    width: 100%;
-    z-index: 801;
-}
+}*/
 
 
 
@@ -167,5 +325,9 @@ th {
     padding: 10px;
 }
 table {
-    border: 2px solid rgb(200, 200, 200);
+    border: 7px solid rgb(200, 200, 200);
 }
+
+
+
+

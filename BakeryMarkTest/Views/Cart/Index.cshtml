@@ -10,7 +10,7 @@
         <title>Cart</title>
     </head>
     <body>
-        <h3>Cart Page</h3>
+        <h3>Cart</h3>
         <table celllpadding="2" cellspacing="2" bordre="1">
             <tr>
                 <th>Option</th>
@@ -24,20 +24,20 @@
         @foreach(var item in ViewBag.cart)
         {
             <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item">Remove</a></td>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.MenuItemId">Remove</a></td>
                 <td>@item.Product.MenuItemId</td>
                 <td>@item.Product.Name</td>
                 <td><img src="~/Images/@item.Product.ImagePath" width="60"/> </td>
-                <td>@item.Product.Price</td>
+                <td>$@item.Product.Price</td>
                 <td>@item.Quantity</td>
-                <td>@(Double.Parse(item.Product.Price) * item.Quantity)</td>
+                <td>$@(Double.Parse(item.Product.Price) * item.Quantity)</td>
 
             </tr>
         }
             <tr>
                 <td alight="right" colspan="6"><b>Sum</b></td>
                 <td>
-                    @ViewBag.total
+                    $@ViewBag.total
                 </td>
             </tr>
         </table>

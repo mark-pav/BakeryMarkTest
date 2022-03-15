@@ -333,6 +333,9 @@ table {
     border: 7px solid rgb(200, 200, 200);
 }
 
-
-
+.contactUs {
+    letter-spacing: 2px;
+    font-family: 'Lato';
+    color: #614936;
+}
 

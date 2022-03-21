@@ -78,10 +78,29 @@ namespace BakeryMarkTest.Controllers
         {
             List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             int index = isExist(id);
-            cart.RemoveAt(index);
+            if(cart[index].Quantity > 0)
+            {
+                cart[index].Quantity--;
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                cart.RemoveAt(index);
+                SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
+                return RedirectToAction("Index");
+            }
+            
+
+        }
+
+        public IActionResult Add(string id)
+        {
+            List<Item> cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            int index = isExist(id);
+            cart[index].Quantity++;
             SessionHelper.SetObjectAsJson(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
-
         }
     }
 }

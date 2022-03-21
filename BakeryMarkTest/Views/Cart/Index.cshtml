@@ -7,11 +7,11 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width"/>
-        <title>Cart</title>
+        <title align="center">Cart</title>
     </head>
     <body>
-        <h3>Cart</h3>
-        <table celllpadding="2" cellspacing="2" bordre="1">
+        <h1>Cart</h1>
+        <table class="table" celllpadding="2" cellspacing="2" bordre="1">
             <tr>
                 <th>Option</th>
                 <th>Id</th>
@@ -24,7 +24,9 @@
         @foreach(var item in ViewBag.cart)
         {
             <tr>
-                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.MenuItemId">Remove</a></td>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.MenuItemId"><u>Remove</u></a>
+                    <br>
+                    <a asp-controller="cart" asp-action="add" asp-route-id="@item.Product.MenuItemId"><u>Add Additional</u></a></td>
                 <td>@item.Product.MenuItemId</td>
                 <td>@item.Product.Name</td>
                 <td><img src="~/Images/@item.Product.ImagePath" width="60"/> </td>

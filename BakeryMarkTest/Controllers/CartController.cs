@@ -30,7 +30,7 @@ namespace BakeryMarkTest.Controllers
         {
             var cart = SessionHelper.GetObjectFromJson<List<Item>>(HttpContext.Session, "cart");
             ViewBag.cart = cart;
-            ViewBag.total = cart.Sum(item => Double.Parse(item.Product.Price) * item.Quantity);
+            ViewBag.total = Math.Round(cart.Sum(item => Double.Parse(item.Product.Price) * item.Quantity), 2);
             //ViewBag.total = 2;
             return View();
         }

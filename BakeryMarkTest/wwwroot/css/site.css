@@ -325,17 +325,19 @@ aside{
 }
 td,
 th {
-    border: 1px solid #000000;
+    border: 1px solid #FFFFFF;
     padding: 10px;
     color:white;
 }
 table {
-    border: 7px solid rgb(200, 200, 200);
+    border: 7px solid #FFFFFF;
+    background-color: #e9a2a2;
 }
 
-.contactUs {
-    letter-spacing: 2px;
-    font-family: 'Lato';
-    color: #614936;
-}
+
+    .contactUs {
+        letter-spacing: 2px;
+        font-family: 'Lato';
+        color: #614936;
+    }
 

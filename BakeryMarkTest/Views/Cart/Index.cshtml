@@ -7,14 +7,13 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width"/>
-        <title align="center">Cart</title>
+        <title>Cart</title>
     </head>
     <body>
-        <h1>Cart</h1>
+        <h1 align="center">===Cart===</h1>
         <table class="table" celllpadding="2" cellspacing="2" bordre="1">
             <tr>
-                <th>Option</th>
-                <th>Id</th>
+                <th>Options</th>
                 <th>Name</th>
                 <th>Photo</th>
                 <th>Price</th>
@@ -27,25 +26,25 @@
                 <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.MenuItemId"><u>Remove</u></a>
                     <br>
                     <a asp-controller="cart" asp-action="add" asp-route-id="@item.Product.MenuItemId"><u>Add Additional</u></a></td>
-                <td>@item.Product.MenuItemId</td>
                 <td>@item.Product.Name</td>
                 <td><img src="~/Images/@item.Product.ImagePath" width="60"/> </td>
                 <td>$@item.Product.Price</td>
                 <td>@item.Quantity</td>
-                <td>$@(Double.Parse(item.Product.Price) * item.Quantity)</td>
+                <td>$@string.Format("{0:f2}", Math.Round((Double.Parse(item.Product.Price) * item.Quantity), 2))</td>
 
             </tr>
         }
             <tr>
-                <td alight="right" colspan="6"><b>Sum</b></td>
+                <td alight="right" colspan="5"><b>Sum</b></td>
                 <td>
-                    $@ViewBag.total
+                    $@string.Format("{0:f2}", ViewBag.total)
                 </td>
             </tr>
         </table>
         <br/>
-        <a asp-controller="menuitems" asp-action="index">Continue Shopping</a>
-        <a asp-controller="checkout" asp-action="index" asp-route-id="">Go to Checkout</a>
+        <a asp-controller="menuitems" asp-action="index"><u>Continue Shopping</u></a>
+        &emsp;
+        <a asp-controller="checkout" asp-action="index" asp-route-id=""><u>Go to Checkout</u></a>
 
     </body>
 

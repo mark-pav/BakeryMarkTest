@@ -19,7 +19,6 @@ namespace BakeryMarkTest.Models
         public string IsVegan { get; set; }
         [Required]
         public string IsVegeterian { get; set; }
-
         public string ImagePath { get; set; }
 
         public MenuItem()

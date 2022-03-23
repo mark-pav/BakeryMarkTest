@@ -59,7 +59,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Create
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return View();

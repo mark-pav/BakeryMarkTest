@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace BakeryMarkTest.Areas.Identity.Pages.Account
@@ -40,7 +41,7 @@ namespace BakeryMarkTest.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            [Display(Name = "Email/ Username")]
             public string Email { get; set; }
 
             [Required]
@@ -50,6 +51,8 @@ namespace BakeryMarkTest.Areas.Identity.Pages.Account
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
         }
+
+        
 
         public async Task OnGetAsync(string returnUrl = null)
         {

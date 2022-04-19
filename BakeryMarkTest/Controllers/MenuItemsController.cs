@@ -59,7 +59,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Create
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -82,7 +82,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Edit/5
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -134,6 +134,7 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)

@@ -57,13 +57,23 @@ namespace BakeryMarkTest
             app.UseSession();
             //app.UseMvc();
 
+            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                //new endpoint for menu item index, address is localhost:XXXXX/menu
+                endpoints.MapControllerRoute(
+                    "Menu",
+                    "menu",
+                    new { controller = "MenuItems", action = "Index" });
                 endpoints.MapRazorPages();
             });
+
+
+
         }
     }
 }

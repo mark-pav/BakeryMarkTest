@@ -41,6 +41,8 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Details/5
+        //HTTP GET route to details page, address is localhost:XXXXX/ItemDetails/{id}
+        [HttpGet("ItemDetails/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)

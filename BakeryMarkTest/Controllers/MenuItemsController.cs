@@ -136,6 +136,8 @@ namespace BakeryMarkTest.Controllers
         }
 
         // GET: MenuItems/Delete/5
+        //added route for deletion method that binds id parameter  
+        [HttpGet("DeleteMenuItem/{5}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {

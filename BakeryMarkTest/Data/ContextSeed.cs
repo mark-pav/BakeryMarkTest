@@ -33,6 +33,26 @@ namespace BakeryMarkTest.Data
                 }
             }
         }
+
+        //public static async Task SeedBasicAsync(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        //{
+        //    var defaultUser = new IdentityUser
+        //    {
+        //        UserName = "BASIC",
+        //        Email = "basic@email.com",
+        //        EmailConfirmed = true
+        //    };
+        //    if (userManager.Users.All(u => u.Id != defaultUser.Id))
+        //    {
+        //        var user = await userManager.FindByEmailAsync(defaultUser.Email);
+        //        if (user == null)
+        //        {
+        //            await userManager.CreateAsync(defaultUser, "!23Qwe");
+        //            await userManager.AddToRoleAsync(defaultUser, Enums.Roles.Basic.ToString());
+
+        //        }
+        //    }
+        //}
     }
     
 }

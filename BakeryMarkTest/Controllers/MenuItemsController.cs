@@ -42,8 +42,8 @@ namespace BakeryMarkTest.Controllers
 
         // GET: MenuItems/Details/5
         //HTTP GET route to details page, address is localhost:XXXXX/ItemDetails/{id}
-        [HttpGet("ItemDetails/{id}")]
-        public async Task<IActionResult> Details(string id)
+        //[HttpGet("ItemDetails/{id}")] Removed so as to allow use of query string at localhost:XXXXX/MenuItems/Details?id=2 and route localhost:XXXXX/MenuItems/Details/2
+        public async Task<IActionResult> Details(string? id, string name)
         {
             if (id == null)
             {
@@ -62,6 +62,7 @@ namespace BakeryMarkTest.Controllers
 
         // GET: MenuItems/Create
         [Authorize(Roles = "Admin")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -78,7 +79,8 @@ namespace BakeryMarkTest.Controllers
             {
                 _context.Add(menuItem);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new {id = menuItem.MenuItemId});
             }
             return View(menuItem);
         }

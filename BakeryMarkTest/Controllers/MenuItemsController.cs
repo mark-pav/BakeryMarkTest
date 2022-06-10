@@ -173,5 +173,15 @@ namespace BakeryMarkTest.Controllers
         {
             return _context.MenuItem.Any(e => e.MenuItemId == id);
         }
+
+        [HttpGet("ApiGetAll")]
+        public IEnumerable<MenuItem> Get()
+        {
+
+            List<MenuItem> menuItems = _context.MenuItem.ToList();
+
+            IEnumerable<MenuItem> result = menuItems.AsEnumerable();
+            return result;
+        }
     }
 }
